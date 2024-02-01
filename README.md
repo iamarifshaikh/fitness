@@ -1,14 +1,14 @@
 <br />
 <div align="center">
   <a href="https://github.com/seyon123/cps714-g6" style="color:white; font-size:1.5rem;">
-    <img src="public/fitin_banner_2.png" alt="Logo" width="auto" height="80">
+<!--     <img src="public/fitin_banner_2.png" alt="Logo" width="auto" height="80"> -->
   </a>
 
   <p align="center">
     <h4>All in one fitness and social app</h4>
     <br />
-    <img src="public/built-with-react.svg" width = "auto" height="20">
-    <img src="public/built-with-firebase.svg" width = "auto" height="20">
+<!--     <img src="public/built-with-react.svg" width = "auto" height="20">
+    <img src="public/built-with-firebase.svg" width = "auto" height="20"> -->
     <br />
     <a href="https://fitin.web.app/">Live Demo</a>
     •
