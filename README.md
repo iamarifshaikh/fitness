@@ -42,10 +42,10 @@ In command line:
 
 ```
 # Clone repository
-$ git clone https://github.com/seyon123/cps714-g6
+$ git clone https://github.com/iamarifshaikh/fitness.git
 
 # Go into repository
-$ cd cps714-g6
+$ cd fitness
 
 # Install dependencies
 $ npm install

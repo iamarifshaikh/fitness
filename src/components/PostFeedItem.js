@@ -2,15 +2,15 @@ import "./PostFeedItem.css";
 import { useEffect, useState } from "react";
 import { Button, Card, Form, Image } from "react-bootstrap";
 import { FaTag, FaTrash } from "react-icons/fa";
-import { db } from "../firebase";
+import { db, storage } from "../firebase";
 import { arrayUnion, arrayRemove, doc, getDoc, updateDoc, collection, addDoc, serverTimestamp, onSnapshot, orderBy, query, deleteDoc } from "firebase/firestore";
 import { useAuth } from "../contexts/AuthContext";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-
 import Moment from "react-moment";
 import "moment";
 import "moment-timezone";
 import { Link, useNavigate } from "react-router-dom";
+import { ref, deleteObject } from "firebase/storage";
 
 function Comment({ comment }) {
 	const [user, setUser] = useState();
@@ -112,10 +112,19 @@ export default function PostFeedItem({ id, userRef, timestamp, tags, image, desc
 		setComment("");
 	}
 
-	function deletePost() {
+	async function deletePost() {
 		const deleteConfirm = window.confirm("Are you sure you want to delete this post? This action is irreversible.");
 		if (deleteConfirm) {
-			deleteDoc(doc(db, `posts`, id));
+			await deleteDoc(doc(db, `posts`, id));
+
+			if(image){
+				const imageRef = ref(storage, image)
+				deleteObject(imageRef).then(() => {
+					console.log("post image deleted")
+				  }).catch((error) => {
+					console.log(error)
+				  });
+			}
 		}
 	}
 
